@@ -59,11 +59,10 @@
                 let g
 				//
                 const loader = new GLTFLoader().setPath( 'assets/' );
-						loader.load( 'asset.glb', function ( gltf ) {
+						loader.load( 'autovrse_office_model.glb', function ( gltf ) {
                             g = gltf.scene
 							scene.add( gltf.scene );
-                            gltf.scene.scale.set(0.0001,0.0001,0.0001)
-                            gltf.scene.position.set(-0.008,-0.004,0.01)
+                            gltf.scene.scale.set(0.001,0.001,0.001)
 							render();
                             console.log(scene)
 						} );
@@ -80,7 +79,7 @@
 					mesh.quaternion.setFromRotationMatrix( controller.matrixWorld );
 					// scene.add( mesh );
                     console.log(scene)
-					g.position.set( 0, 0, - 0.3 ).applyMatrix4( controller.matrixWorld );
+					g.position.set( -1, 0, - 0.3 ).applyMatrix4( controller.matrixWorld );
 
 				}
 
