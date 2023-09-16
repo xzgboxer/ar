@@ -63,6 +63,7 @@
                             g = gltf.scene
 							scene.add( gltf.scene );
                             gltf.scene.scale.set(0.001,0.001,0.001)
+                            gltf.scene.position.set(-2,-1.6,0)
 							render();
                             console.log(scene)
 						} );
@@ -79,7 +80,7 @@
 					mesh.quaternion.setFromRotationMatrix( controller.matrixWorld );
 					// scene.add( mesh );
                     console.log(scene)
-					g.position.set( -1, 0, - 0.3 ).applyMatrix4( controller.matrixWorld );
+					// g.position.set( -1, 0, - 0.3 ).applyMatrix4( controller.matrixWorld );
 
 				}
 
