@@ -58,14 +58,14 @@
 				document.body.appendChild( ARButton.createButton( renderer ) );
 
 				//
-
                 const loader = new GLTFLoader().setPath( 'assets/' );
-						loader.load( 'autovrse_office_model.glb', function ( gltf ) {
+						loader.load( 'asset.glb', function ( gltf ) {
 
 							scene.add( gltf.scene );
-                            
+                            gltf.scene.scale.set(0.00001,0.00001,0.00001)
+                            gltf.scene.position.set(-0.008,-0.004,0.006)
 							render();
-
+                            console.log(scene)
 						} );
 
 
