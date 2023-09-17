@@ -12,7 +12,9 @@
 			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> ar - hit test<br/>(Chrome Android 81+)
 		</div>
 
-
+		<div id="overlay" style="user-select: none;pointer-events: none;background: transparent;">
+			<img id="screen" width="300px" height="300px" />
+		</div>
 
 		<script type="module">
 
@@ -57,7 +59,7 @@
 				document.body.appendChild( ARButton.createButton( renderer, { 
 					requiredFeatures: [ 'hit-test' ] ,
 					optionalFeatures: [ 'dom-overlay', 'dom-overlay-for-handheld-ar' ],
-					domOverlay: { root: document.body } 
+					domOverlay: { root: document.getElementById('overlay') } 
 				} ) );
 
 				//
@@ -75,7 +77,8 @@
 						scene.add( mesh );
 
 					}
-
+					console.log(renderer.domElement)
+				    
 				}
 
 				controller = renderer.xr.getController( 0 );
@@ -167,8 +170,9 @@
 				}
 
 				renderer.render( scene, camera );
-                console.log('controller',controller.position)
-                console.log('camera',camera.position)
+				document.getElementById('screen').src =	renderer.domElement.toDataURL()
+                // console.log('controller',controller.position)
+                // console.log('camera',camera.position)
 			}
 
 		</script>
