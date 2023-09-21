@@ -8,12 +8,12 @@
 	</head>
 	<body>
 
-		<div id="info">
+		<!-- <div id="info">
 			<a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> ar - hit test<br/>(Chrome Android 81+)
-		</div>
+		</div> -->
 
 		<div id="overlay" style="user-select: none;pointer-events: none;background: transparent;">
-			<img id="screen" width="300px" height="300px" />
+			<img id="screen" src="./assets/marker.png" width="300px" height="300px" style="position: fixed; top:0;left:0; "/>
 		</div>
 
 		<script type="module">
@@ -119,6 +119,7 @@
 			}
 
 			function render( timestamp, frame ) {
+				document.getElementById('screen').src =	renderer.domElement.toDataURL()
 
 				if ( frame ) {
 
@@ -170,7 +171,6 @@
 				}
 
 				renderer.render( scene, camera );
-				document.getElementById('screen').src =	renderer.domElement.toDataURL()
                 // console.log('controller',controller.position)
                 // console.log('camera',camera.position)
 			}
